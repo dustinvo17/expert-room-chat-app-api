@@ -27,7 +27,7 @@ class Messages extends React.Component {
         this.inputOpenFileRef = React.createRef()
         this.state = { showEmoji: false, chatInput: '', openModal: false, imgUrl: '' }
         this.lastMsg = React.createRef()
-        this.socket = openSocket('ws://localhost:3000/', {
+        this.socket = openSocket('https://expert-room-277120.uc.r.appspot.com', {
             query: {
                 access_token: localStorage.getItem('access_token')
             }
