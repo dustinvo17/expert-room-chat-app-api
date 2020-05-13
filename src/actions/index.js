@@ -1,7 +1,7 @@
 
 import axios from 'axios'
 import {setToken,getUser} from './helper'
-let baseUrl = 'https://cors-anywhere.herokuapp.com/https://chatapp-nestjs.herokuapp.com'
+let baseUrl = 'https://chatapp-nestjs.herokuapp.com'
 
 export const imgPath = () => {
     return {
