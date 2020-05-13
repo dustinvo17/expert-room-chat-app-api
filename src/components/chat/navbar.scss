@@ -1,0 +1,17 @@
+.dropdown {
+    right:-10px;
+    bottom:0;
+  transform: translateY(105%);
+  z-index: 99;
+}
+.navbar {
+  @media only screen and (max-width: 900px){
+   padding-right:20px!important;
+   .dropdown {
+    right:10px;
+    bottom:0;
+  transform: translateY(105%);
+  z-index: 99;
+  }
+  }
+}

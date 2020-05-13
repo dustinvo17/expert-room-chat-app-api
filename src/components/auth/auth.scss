@@ -1,0 +1,37 @@
+.img-auth {
+    filter:brightness(60%);
+    @media only screen and (max-width: 900px){
+        display: none!important;
+      }
+}
+.login-title {
+    top:6rem;
+}
+.register-title {
+    top:10rem;
+}
+.auth-container {
+    @media only screen and (max-width: 900px){
+       display:flex;
+       flex-direction: column;
+       & div {
+           padding:10px;
+       }
+       & .auth-option {
+           display: flex;
+           justify-content: center;
+        order:1!important;
+        .login-title {
+            top:0;
+            margin-right:10px;
+        }
+        .register-title {
+            top:0;
+        }
+        & button {
+            color: #a0aec0;
+            position: relative;
+        }
+       }
+      }
+}

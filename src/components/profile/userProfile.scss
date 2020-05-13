@@ -1,0 +1,32 @@
+.btn-profile {
+    padding:5px 10px;
+    margin-top:10px;
+    border-radius: 50%;
+}
+.side-bar {
+    @media only screen and (max-width: 900px){
+        padding:8px!important;
+        width:60%!important;
+        & h1 {
+            font-size:16px!important;
+            margin-right:auto;
+          
+        }
+        & button {
+            padding:5px!important;
+            & i{
+                font-size:14px!important;
+                padding:5px!important;
+            }
+        }
+       
+      }
+      
+}
+.conversation-part {
+    @media only screen and (max-width: 900px){ 
+        p {
+            font-size:14px!important;
+        }
+    }
+}
