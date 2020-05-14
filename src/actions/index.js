@@ -1,7 +1,7 @@
 
 import axios from 'axios'
 import {setToken,getUser} from './helper'
-let baseUrl = 'https://expertroom.herokuapp.com/'
+let baseUrl = 'https://expertroom.herokuapp.com'
 
 export const imgPath = () => {
     return {
