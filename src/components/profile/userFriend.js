@@ -148,7 +148,7 @@ class UserFriend extends React.Component {
 
     }
     render() {
-        console.log(this.props)
+    
         return <div>  {Object.keys(this.props.user).length !== 0 ?  this.renderUserFriends() : ''}</div>
     }
 }

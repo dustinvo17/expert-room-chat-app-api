@@ -78,10 +78,10 @@ class AddFriendModal extends React.Component{
         <button className="absolute" style={{top:'5px',right:'10px'}} onClick={()=>this.props.handleCloseAddFriend()}>
             <i className="fa fa-close text-md text-gray-600"></i>
         </button>
-        <form onSubmit={(e) => this.handleSearch(e)}>
+        <form >
             <div className="flex items-center">
             <input value={this.state.nameSearch} onChange={(e)=>{this.setState({nameSearch:e.target.value})}} className="border-2 border-gray-400 rounded-md w-full p-2 mr-2" placeholder="Search User" />
-            <button type="submit"><i className="fa fa-search text-2xl text-gray-600"></i></button>
+            <button onClick={(e) => this.handleSearch(e)} ><i className="fa fa-search text-2xl text-gray-600"></i></button>
             </div>
            
         </form>

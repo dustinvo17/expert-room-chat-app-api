@@ -36,7 +36,7 @@ class Messages extends React.Component {
     componentDidMount() {
         this.socket.on('chat', data => {
             console.log(data)
-            if(data.owner === this.conversationId){
+            if(data.owner._id === this.conversationId){
                 this.props.handleMessageSend(data)
             }
          
@@ -69,7 +69,8 @@ class Messages extends React.Component {
           
                 let owner = msg.user._id === this.props.user._id
             
-                return <li ref={index === this.props.messages.length - 1 ? this.lastMsg : ''} className={`${owner ? 'self-start' : 'self-end'} flex relative items-center my-4 single-msg`} key={msg._id}>
+                return <li ref={index === this.props.messages.length - 1 ? this.lastMsg : ''} className={`${owner ? 'self-start' : 'self-end'} inline-block my-4 single-msg`} key={msg._id}>
+                    <div className="flex items-center">
                     <div className={`text-base p-2 rounded-lg ${owner ? 'order-1 bg-white text-gray-700 ml-4' : 'bg-black text-white mr-4'}`}>
                         {msg.status === 0 ? <span >{msg.body}</span> :
                             <img onClick={() => this.handleModalImage(msg.body)} src={`${this.props.imgPath}${msg.body}`} className="img-msg w-64 h-32 rounded-lg object-cover cursor-pointer" />
@@ -79,6 +80,8 @@ class Messages extends React.Component {
 
 
                     <img className="w-8 h-8 object-cover rounded-full cursor-pointer " src={`${this.props.imgPath}${msg.user.img}`} />
+                    </div>
+                    
 
                 </li>
             })
@@ -150,7 +153,7 @@ class Messages extends React.Component {
 
             </ul>
             <div className="py-8 chat-input-part">
-                <form className=" bg-white flex rounded-lg p-4 relative items-center" onSubmit={(e) => this.handleMessageSend(e)}>
+                <form className=" bg-white flex rounded-lg p-4 relative items-center" >
                     <Picker onSelect={this.addEmoji} set='apple' style={{ display: `${this.state.showEmoji ? 'block' : 'none'}` }} />
                     <div className="mr-4 py-2 px-4  chat-input-part-btn rounded-lg bg-gray-300  cursor-pointer hover:bg-gray-400" onClick={() => this.toggleEmojiSheet()}>
                         <i className="text-gray-700 fa fa-smile-o text-xl "></i>
@@ -163,7 +166,7 @@ class Messages extends React.Component {
                     </div>
 
                     <div className="py-2 px-4 rounded-lg bg-blue-500 text-white  cursor-pointer hover:bg-blue-600">
-                        <button type="submit"><i className="fa fa-send text-sm "></i></button>
+                        <button onClick={(e) => this.handleMessageSend(e)}><i className="fa fa-send text-sm "></i></button>
                     </div>
 
                 </form>

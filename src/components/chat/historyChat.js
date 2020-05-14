@@ -31,6 +31,7 @@ class HistoryChat extends React.Component {
                 return <li onClick={() => {
                     this.props.getCurrentConversation(conversation.messages)
                     this.props.setIndexConversation(i)
+                    this.props.injectConversationID(conversation._id)
                     if(window.innerWidth <= 900) {
                         this.props.showMsg()
                     }
