@@ -18,6 +18,7 @@ class UserProfile extends React.Component {
     }
     handleUpdateProfile = (e) => {
         e.preventDefault()
+        console.log('run')
         this.props.updateUserProfile(this.state.name,this.state.job)
     }
     render() {
@@ -51,7 +52,7 @@ class UserProfile extends React.Component {
                     <input id="job" value={this.state.job} onChange={(e)=>this.setState({job:e.target.value})}  className="p-2 border-2 border-gray-300 rounded-lg w-full my-4 shadow-md" ></input>
                 </div>
                 <div className="flex justify-center mt-auto">
-                    <button className="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded" onClick={() => this.handleUpdateProfile()}>
+                    <button className="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded" onClick={(e) => this.handleUpdateProfile(e)}>
                         Update
 </button>
                 </div>

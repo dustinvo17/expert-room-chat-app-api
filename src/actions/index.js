@@ -187,6 +187,6 @@ export const updateUserProfile = (name, job) => async dispatch => {
         name,
         job
     })
-
+   
     dispatch({type: "user_profile", payload: data})
 }
