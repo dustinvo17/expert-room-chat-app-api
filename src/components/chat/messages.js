@@ -36,11 +36,16 @@ class Messages extends React.Component {
     componentDidMount() {
         this.socket.on('chat', data => {
             console.log(data)
-            this.props.handleMessageSend(data)
+            if(data.owner === this.conversationId){
+                this.props.handleMessageSend(data)
+            }
+         
+            
         })
         if (this.lastMsg.current) {
             this.lastMsg.current.scrollIntoView()
         }
+      
 
 
     }

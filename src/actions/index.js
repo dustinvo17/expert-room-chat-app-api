@@ -77,16 +77,7 @@ export const handleUploadImage = (formData,conversationId) => async (dispatch,ge
     const {data}= await axios.post(`${baseUrl}/chat/message?conversationId=${conversationId}`,   formData, {
 
     })
-    const state = getState()
-
-    const messages = state.messages
-
-
-
-    if(data){
-        dispatch({type:"current_conversation",payload:[...messages,data]})
-    }
-    
+    return data
 
 }
 export const handleMessageSend = message => (dispatch, getState) =>{

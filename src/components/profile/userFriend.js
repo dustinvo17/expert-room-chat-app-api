@@ -111,7 +111,7 @@ class UserFriend extends React.Component {
 
         return <div>
             <AddFriendModal isOpen={this.state.addFriendOpen} handleCloseAddFriend={this.handleCloseAddFriend}/>
-            <div className="side-bar absolute right-0 top-0 h-full bg-white w-1/5 z-50 shadow-2xl p-4">
+            <div className="side-bar absolute right-0 top-0 h-full bg-white w-1/5 z-40 shadow-2xl p-4">
                 <div className="side-bar-top flex justify-between items-center">
                  <h1 className="text-2xl ">Friends</h1>
                  <div classname="flex justify-between">
