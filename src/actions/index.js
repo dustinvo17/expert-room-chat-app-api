@@ -177,7 +177,9 @@ export const uploadImageProfile = formData => async dispatch => {
     const {data}= await axios.post(`${baseUrl}/users`,   formData, {
 
     })
-
+    if(data){
+        alert('Successfully upload profile')
+    }
         dispatch({type: "user_profile", payload: data})
     
     
@@ -187,6 +189,8 @@ export const updateUserProfile = (name, job) => async dispatch => {
         name,
         job
     })
-   
+   if(data ){
+       alert('Successfully upload profile')
+   }
     dispatch({type: "user_profile", payload: data})
 }
