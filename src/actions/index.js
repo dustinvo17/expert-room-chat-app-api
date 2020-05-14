@@ -117,6 +117,7 @@ export const acceptFriend = (userId) => async (dispatch) => {
     const {data} = await axios.put(`${baseUrl}/users/friend`,{
         userId
     })
+ 
     dispatch({type:"user_friends",payload:data})
 }
 export const denyFriend = (userID,pullBack=false) => async dispatch => {
@@ -128,30 +129,38 @@ export const denyFriend = (userID,pullBack=false) => async dispatch => {
         }
       
     })
+
     dispatch({type:"user_friends",payload:data})
 }
 
 export const initConversation = (userID) => async (dispatch,getState) => {
  
-
+  
     // console.log(state.conversationHistory)
     const {data} = await axios.post(`${baseUrl}/chat`,{
         userID
     })
     const newList = data instanceof Array
-
+   let currentConversation;
     if(!newList) {
         const state =getState()
         const conversationList = state.conversationHistory
         const index = conversationList.findIndex(item => item._id === data)
+        currentConversation = conversationList[index].messages
         dispatch({type:'conversation_id',payload:conversationList[index]._id})
         dispatch({type:'index_conversation',payload:index})
+      
     }
     else {
             dispatch({type:'conversation_id',payload:data[data.length-1]._id})
             dispatch({type:"get_conversation_history",payload:data})
+            currentConversation = data[data.length-1].messages
     }
-
+   git dispatch({
+        type:"current_conversation",
+        payload:currentConversation
+    })
+    
 
     
 }
@@ -189,7 +198,7 @@ export const updateUserProfile = (name, job) => async dispatch => {
         name,
         job
     })
-   if(data ){
+   if(data){
        alert('Successfully upload profile')
    }
     dispatch({type: "user_profile", payload: data})
