@@ -55,7 +55,7 @@ class AddFriendModal extends React.Component{
             </div>
             <div>
                 <p className="text-md text-gray-800 mb-2">{user.name}</p>
-                <p className="text-sm text-gray-600">Dental Hygienist</p>
+        <p className="text-sm text-gray-600">{user.job}</p>
 
 
             </div>
