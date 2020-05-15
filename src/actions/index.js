@@ -83,10 +83,13 @@ export const handleUploadImage = (formData, conversationId) => async (dispatch, 
 export const handleMessageSend = message => (dispatch, getState) => {
     const state = getState()
     const messages = state.messages
-    dispatch({
-        type: "current_conversation",
-        payload: [...messages, message]
-    })
+    if(message._id !== messages[messages.length]._id) {
+        dispatch({
+            type: "current_conversation",
+            payload: [...messages, message]
+        })
+    }
+ 
 }
 
 export const getUserByName = name => async (dispatch) => {
