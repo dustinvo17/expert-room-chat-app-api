@@ -35,8 +35,10 @@ class Messages extends React.Component {
     }
     componentDidMount() {
         this.socket.on('chat', data => {
-            console.log(data)
-            if(data.owner._id === this.conversationId){
+       
+            if(data.owner._id === this.props.conversationId){
+          
+           
                 this.props.handleMessageSend(data)
             }
          
