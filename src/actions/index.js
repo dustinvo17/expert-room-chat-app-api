@@ -81,9 +81,11 @@ export const handleUploadImage = (formData, conversationId) => async (dispatch, 
 
 }
 export const handleMessageSend = message => (dispatch, getState) => {
+  
     const state = getState()
     const messages = state.messages
-    if(message._id !== messages[messages.length]._id) {
+
+    if(message._id !== messages[messages.length-1]._id) {
         dispatch({
             type: "current_conversation",
             payload: [...messages, message]

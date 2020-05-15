@@ -37,7 +37,7 @@ class Messages extends React.Component {
         this.socket.on('chat', data => {
        
             if(data.owner === this.props.conversationId){
-                console.log(data.owner === this.props.conversationId)
+                console.log(data)
            
                 this.props.handleMessageSend(data)
             }
@@ -167,8 +167,8 @@ class Messages extends React.Component {
                         <i className="text-gray-700 fa fa-image text-xl "></i>
                     </div>
 
-                    <div className="py-2 px-4 rounded-lg bg-blue-500 text-white  cursor-pointer hover:bg-blue-600">
-                        <button onClick={(e) => this.handleMessageSend(e)}><i className="fa fa-send text-sm "></i></button>
+                    <div className="py-2 px-4 rounded-lg bg-blue-500 text-white  cursor-pointer hover:bg-blue-600" onClick={(e) => this.handleMessageSend(e)}>
+                        <button ><i className="fa fa-send text-sm "></i></button>
                     </div>
 
                 </form>
